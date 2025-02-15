@@ -17,13 +17,31 @@ namespace rock_paper_scissors_gambling_1_7_summative
 
             while (money > -500)
             {
-                Console.WriteLine("");
+                Console.Clear();
 
 
                 Console.WriteLine("  Rock, Paper, Scissors        Current Balance:" + money);
                 Console.WriteLine("----------------------------------------------------------");
 
+                //get bet amount
+                //var gamble_amount = Convert.ToInt32(Console.ReadLine());
+                int gamble_amount;
+                Console.WriteLine();
+                Console.WriteLine("place your bet");
+                Int32.TryParse(Console.ReadLine(), out gamble_amount);
+                //Console.WriteLine(gamble_amount);
 
+                //betfix
+                if (gamble_amount < 100)
+                {
+                    gamble_amount = 100;
+                }
+                Console.WriteLine("Current wager: " + gamble_amount);
+                Console.WriteLine();
+
+
+                //get user input
+                Console.WriteLine("Rock, Paper, or Scissors!");
                 var var_user_input = Console.ReadLine().ToLower();
                 int int_user_input = -1;
                 var valid_input = false;
@@ -37,19 +55,10 @@ namespace rock_paper_scissors_gambling_1_7_summative
 
                 }
 
-                //get bet amount
-                var var_gamble_amount = Convert.ToInt32(Console.ReadLine());
-                int gamble_amount = Convert.ToInt32(var_gamble_amount);
-
-                //betfix
-                //if (gamble_amount < 500)
-                //{
-                //    gamble_amount = 500;
-                //}
 
                 if (valid_input == true)
                 {
-                    var bot_input = generator.Next(3); // bot selects its pick
+                    var bot_input = generator.Next(3); //bot selects its pick
 
                     //rock paper scissors main game loop
                     if (debug)
@@ -79,7 +88,22 @@ namespace rock_paper_scissors_gambling_1_7_summative
                     Console.WriteLine("invalid input");
                 }
 
+                Console.WriteLine("press anywhere to continue");
+                Console.ReadLine();
+
             }
+            Console.Clear();
+            Console.WriteLine(@"
+After months on the run, you thought you were free. You changed your name, fled the country, even 
+learned to live off the grid. But the IRS never forgets. They don’t forgive. And they always collect.
+
+Just when you let your guard down—BAM!—they descend like financial assassins in their black suits, 
+calculators holstered, W-2s at the ready. “You thought you could outrun interest?” one sneers as they 
+slap the cuffs on. “Penalties compound, my friend.”
+
+Your fate? A cold, dimly lit audit room where every deduction is scrutinized, every expense questioned. 
+There’s no escape now. The IRS has you… and they always get their money.");
+            Console.ReadLine();
 
         }
 
